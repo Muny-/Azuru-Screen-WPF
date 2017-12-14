@@ -1,0 +1,152 @@
+﻿<Window x:Class="ASU.Client"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Azuru Sharing Utility" Height="366" Width="575" WindowStartupLocation="CenterScreen" Background="#FF2E2E2E" Loaded="Window_Loaded" Closing="Window_Closing" Icon="asu.ico" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" MinHeight="366" MouseLeave="Window_MouseLeave">
+    <Window.Resources>
+        <Style x:Key="FlatButton" TargetType="Button">
+            <Setter Property="Background" Value="#FF40B9FF" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF258AC5" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF226C97" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+        <Style x:Key="FlatRedButton" TargetType="Button">
+            <Setter Property="Background" Value="#FFD86060" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFBD3737" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFBD3737" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+        <Style x:Key="FlatGreenButton" TargetType="Button">
+            <Setter Property="Background" Value="#FF60D870" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF37BD49" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF37BD49" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="ControlGridColumn" Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="ControlGrid" Grid.Column="0" Background="White" MouseEnter="ControlGrid_MouseEnter" MouseLeave="ControlGrid_MouseLeave" Width="107">
+            <TextBlock Grid.Column="0" x:Name="fpsLabel" Text="0 FPS&#xA;0 B/s" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Padding="5,5,5,4" TextAlignment="Center"/>
+            <Button x:Name="FullscreenButton" Content="Fullscreen" VerticalAlignment="Bottom" Style="{StaticResource FlatButton}" Height="50" FontSize="16" BorderThickness="0" Click="Button_Click" Focusable="False"/>
+            <Button x:Name="ShowCursorButton" Content="Show Local Cursor" VerticalAlignment="Bottom" Style="{StaticResource FlatButton}" Height="30" FontSize="11" BorderThickness="0" Margin="0,0,0,51" Click="ShowCursorButton_Click" Focusable="False"/>
+            <Button x:Name="ControlToggleButton" Content="Disable Control" VerticalAlignment="Bottom" Style="{StaticResource FlatButton}" Height="30" FontSize="11" BorderThickness="0" Margin="0,0,0,82" Click="ControlToggleButton_Click" Focusable="False"/>
+            <Button x:Name="DisconnectButton" Content="Disconnect" VerticalAlignment="Bottom" Style="{StaticResource FlatRedButton}" Height="30" FontSize="11" BorderThickness="0" Margin="0,0,0,144" Focusable="False" Click="DisconnectButton_Click"/>
+            <Button x:Name="ReconnectButton" Content="Reconnect" VerticalAlignment="Bottom" Style="{StaticResource FlatGreenButton}" Height="30" FontSize="11" BorderThickness="0" Margin="0,0,0,175" Focusable="False" Click="ReconnectButton_Click"/>
+            <Button x:Name="AutoHideToggleButton" Content="Enable Auto Hide" VerticalAlignment="Bottom" Style="{StaticResource FlatButton}" Height="30" FontSize="11" BorderThickness="0" Margin="0,0,0,113" Focusable="False" Click="AutoHideToggleButton_Click"/>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Image Cursor="None" x:Name="RemoteImage" Margin="0" MouseUp="RemoteImage_MouseUp" MouseMove="RemoteImage_MouseMove" MouseDown="RemoteImage_MouseDown" MouseWheel="RemoteImage_MouseWheel" Focusable="True" Source="asu.ico" StretchDirection="DownOnly">
+            </Image>
+            <Grid x:Name="StatusGrid" Margin="0" Background="#80000000" Visibility="Hidden">
+                <TextBlock x:Name="StatusLabel" Text="-" Margin="0" Foreground="White" FontSize="24" TextWrapping="Wrap" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Direction="0" ShadowDepth="0" BlurRadius="13"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

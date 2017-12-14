@@ -1,0 +1,64 @@
+﻿<Window x:Class="ASU.SharingSourceDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Azuru Sharing Utility" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="asu.ico">
+    <Window.Resources>
+        <Style x:Key="FlatButton" TargetType="Button">
+            <Setter Property="Background" Value="#FF40B9FF" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextOptions.TextFormattingMode="Display" TextAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF258AC5" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF226C97" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid Margin="0,40,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="EntireDesktopButton" Grid.Column="0" Grid.Row="0" Margin="10" Style="{StaticResource FlatButton}" Content="My Entire&#xD;&#xA;Desktop" Click="EntireDesktopButton_Click"/>
+            <Button x:Name="ActiveWindowButton" Grid.Column="1" Grid.Row="0" Margin="10" Style="{StaticResource FlatButton}" Content="My Active&#xD;&#xA;Window" Click="ActiveWindowButton_Click"/>
+            <Button x:Name="WebcamButton" Grid.Column="0" Grid.Row="1" Margin="10" Style="{StaticResource FlatButton}" Content="My&#xD;&#xA;Webcam" Click="WebcamButton_Click"/>
+            <Button x:Name="MJPEGStreamButton" Grid.Column="1" Grid.Row="1" Margin="10" Style="{StaticResource FlatButton}" Content="A MJPEG&#xD;&#xA;Stream" Click="MJPEGStreamButton_Click"/>
+        </Grid>
+        <Label Content="What do you want to share?" HorizontalAlignment="Center" Margin="0,8,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+    </Grid>
+</Window>

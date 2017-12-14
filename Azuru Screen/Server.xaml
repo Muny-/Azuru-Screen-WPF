@@ -1,0 +1,67 @@
+﻿<Window x:Class="ASU.Server"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Server" Height="336" Width="485" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="asu.ico">
+    <Window.Resources>
+        <Style x:Key="FlatButton" TargetType="Button">
+            <Setter Property="Background" Value="#FF40B9FF" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF258AC5" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF226C97" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="interfaceColumn" Width="270"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="interfaceGrid" Grid.Column="0" Grid.ColumnSpan="2" Panel.ZIndex="1" Background="White">
+            <Button x:Name="button1" Content="Start Sharing" Margin="0" Click="Button_Click" Style="{StaticResource FlatButton}" VerticalAlignment="Top" Height="42" BorderThickness="0"/>
+            <Label x:Name="fpsLabel" Content="0 FPS" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
+            <Label Content="Connected clients:" HorizontalAlignment="Left" Margin="9,79,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="clientsConnectedLabel" Content="0" HorizontalAlignment="Left" Margin="121,80,0,0" VerticalAlignment="Top"/>
+            
+            <Button x:Name="sharingSourceSettings" Content="Source Settings" Margin="0" Style="{StaticResource FlatButton}" VerticalAlignment="Bottom" Height="42" Click="sharingSourceSettings_Click" BorderThickness="0"/>
+            <CheckBox x:Name="previewCheckBox" Content="Show Preview (slows stream)" HorizontalAlignment="Left" Margin="13,113,0,0" VerticalAlignment="Top" Padding="5,0" Checked="previewCheckBox_Checked" Unchecked="previewCheckBox_Unchecked"/>
+            <CheckBox x:Name="remoteControlCheckbox" Content="Allow Cursor &amp; Keyboard Control" HorizontalAlignment="Left" Margin="13,138,0,0" VerticalAlignment="Top" Padding="5,0" IsChecked="True" Checked="remoteControlCheckbox_Checked" Unchecked="remoteControlCheckbox_Unchecked"/>
+            <Label x:Name="serverStatusLabel" Content="Server Not Listening" Margin="0,0,0,42" VerticalAlignment="Bottom" Background="#FFC13A3A" Foreground="White" HorizontalContentAlignment="Center" Height="42" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Right" Height="18" Margin="0,0,10,54" VerticalAlignment="Bottom" Width="18" Source="/ASU;component/Resources/paperclip.png" MouseUp="Image_MouseUp"/>
+            <CheckBox x:Name="enableAero" Content="Enable Windows Aero" HorizontalAlignment="Left" Margin="13,163,0,0" VerticalAlignment="Top" Padding="5,0" IsChecked="True" Checked="enableAero_Checked" Unchecked="enableAero_Unchecked"/>
+        </Grid>
+        <Border Grid.Column="1" Background="Black">
+            <Image x:Name="PreviewImage"/>
+        </Border>
+    </Grid>
+</Window>
